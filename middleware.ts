@@ -3,43 +3,20 @@ import { NextResponse } from "next/server";
 
 
 const isPublicRoute = createRouteMatcher([
-    "/sign-in",
-    "/sign-up",
-    "/",
-    "/home"
-])
+  "/",
+  "/home",
+  "/sign-in",
+  "/sign-up",
+]);
 
 const isPublicApiRoute = createRouteMatcher([
-    "/api/videos",
-])
+  "/api/videos",
+]);
 
 
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId } = await auth();
-  const currentUrl = new URL(req.url)
-  const isAccessingDashboard = currentUrl.pathname === "/home"
-  const isApiRequest = currentUrl.pathname.startsWith("/api")
-
-  // If user is logged in and accessing a public route but not the dashboard, redirect to the dashboard
-  if (userId && isPublicRoute(req) && !isAccessingDashboard) {
-    return NextResponse.redirect(new URL("/home", req.url))
-  }
-
-  //not logged in
-  if (!userId) {
-    // If user is not logged in and trying to access a protected route, redirect to the sign in page
-    if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
-      return NextResponse.redirect(new URL("/sign-in", req.url))
-    }
-
-    // If user is not logged in and trying to access a protected API route, redirect to the sign in page
-    if (isApiRequest && !isPublicApiRoute(req)) {
-      return NextResponse.redirect(new URL("/sign-in", req.url))
-      
-    }
-  }
-
+  
 
 
   return NextResponse.next()
@@ -47,5 +24,10 @@ export default clerkMiddleware(async (auth, req) => {
 
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
 }

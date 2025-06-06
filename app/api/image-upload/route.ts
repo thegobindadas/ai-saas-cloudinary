@@ -19,13 +19,14 @@ interface CloudinaryUploadResult {
 
 export async function POST(request: NextRequest) {
     try {
-
+console.log("Api route hit") 
+/*
         const { userId } = await auth();
 
         if (!userId) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-        
+*/       
 
         const formData = await request.formData();
 
@@ -53,7 +54,7 @@ export async function POST(request: NextRequest) {
                 uploadStream.end(fileBuffer);
             }
         )
-        console.log(result)
+
 
 
         return NextResponse.json(
@@ -61,12 +62,15 @@ export async function POST(request: NextRequest) {
                 public_id: result.public_id,
                 msg: "Image uploaded successfully",
             }, 
-            { status: 200 }
+            { 
+                status: 200,
+            }
         );
-    } catch (error) {
+
+    } catch (error: any) {
         console.error("Error while uploading image: ", error);
         return NextResponse.json(
-            { error: "Error while uploading image. Please try again later." },
+            { error: error?.message || "Error while uploading image. Please try again later." },
             { status: 500 }
         )
     }
