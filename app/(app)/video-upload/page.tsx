@@ -361,7 +361,9 @@ function VideoUpload() {
                   onClick={handleVideoUpload}
                   disabled={isLoading || Object.keys(errors).length > 0 || !file || !title.trim()}
                   className={`w-full py-4 px-6 rounded-lg font-semibold text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 flex items-center justify-center gap-3 ${
-                    isLoading || Object.keys(errors).length > 0 || !file || !title.trim()
+                    isLoading 
+                      ? 'bg-purple-600 text-white cursor-wait shadow-lg shadow-purple-500/25'
+                      : Object.keys(errors).length > 0 || !file || !title.trim()
                       ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                       : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-blue-500/25'
                   }`}
@@ -369,12 +371,12 @@ function VideoUpload() {
                   {isLoading ? (
                     <>
                       <div className="flex items-center space-x-3">
-                        <Upload className="w-5 h-5 text-purple-400" />
+                        <Upload className="w-5 h-5 text-white" />
                         <span className="text-white font-medium">Uploading</span>
                         <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                          <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                         </div>
                       </div>
                     </>
