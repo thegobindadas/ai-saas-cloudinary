@@ -27,14 +27,14 @@ interface CloudinaryUploadResult {
 
 export async function POST(request: NextRequest) {
     try {
-
+/*
         const { userId } = await auth();
 
         if (!userId) {
             return NextResponse.json({ error: "Unauthorized to upload video." }, { status: 401 });
         }
         
-
+*/
         if (
             !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
             !process.env.CLOUDINARY_API_KEY ||
@@ -53,6 +53,10 @@ export async function POST(request: NextRequest) {
 
         if (!file) {
             return NextResponse.json({ error: "Video file not found." }, { status: 400 });
+        }
+
+        if (file.type !== "video/mp4") {
+            return NextResponse.json({ error: "Only MP4 video files are supported." }, { status: 400 });
         }
 
         if (!title || !description || !originalSize) {
@@ -87,7 +91,6 @@ export async function POST(request: NextRequest) {
                 uploadStream.end(fileBuffer);
             }
         )
-        console.log(result)
 
 
         const video = await prisma.video.create({
@@ -100,7 +103,6 @@ export async function POST(request: NextRequest) {
                 duration: result.duration || 0,
             }
         })
-        console.log(video);
 
 
 

@@ -59,7 +59,7 @@ function SocialShare() {
     setUploadedImage(response.data.public_id);
 
     } catch (error) {
-      console.error("Failed to uploading image1: ", error);
+      console.error("Failed to uploading image: ", error);
       alert("Failed to uploading image");
     } finally {
       setIsUploading(false);
