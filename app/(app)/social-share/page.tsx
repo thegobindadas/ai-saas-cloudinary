@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Upload, Camera, Download, Sparkles } from "lucide-react";
-import { CldImage } from 'next-cloudinary';
+import { CldImage } from "next-cloudinary";
 import axios from "axios";
 
 

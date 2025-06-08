@@ -7,7 +7,7 @@ import LoadingState from "@/components/LoadingState";
 import EmptyState from "@/components/EmptyState";
 import { Video } from "@/types";
 import axios from "axios";
-import Link from "next/link";
+
 
 
 function Home() {
@@ -41,6 +41,7 @@ function Home() {
 
 
   useEffect(() => {
+    setLoading(true);
     fetchVideos();
   }, [fetchVideos]);
 
