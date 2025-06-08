@@ -16,7 +16,7 @@ MediaMorph is a fullstack SaaS application built with Next.js and Clerk, enablin
   - Twitter Post (16:9)
   - Twitter Header (3:1)
   - Facebook Cover (205:78)
-- ⚙️ **Fullstack SaaS stack**: TypeScript, Prisma, NeonDB, Cloudinary, Clerk, Next.js, DaisyUI
+- ⚙️ **Fullstack SaaS stack**: TypeScript, Prisma, NeonDB, Cloudinary, Next-cloudinary, Clerk, Next.js, DaisyUI
 
 ---
 
@@ -24,11 +24,11 @@ MediaMorph is a fullstack SaaS application built with Next.js and Clerk, enablin
 
 | Category          | Tech Used                          |
 |-------------------|------------------------------------|
-| Frontend          | Next.js (App Router), TypeScript   |
+| Frontend          | [Next.js (App Router)](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/) |
 | Backend           | [Prisma ORM](https://www.prisma.io/) |
 | Database          | [NeonDB (PostgreSQL)](https://neon.tech/) |
-| Authentication    | [Clerk](https://clerk.com/)                              |
-| Media Handling    | [Cloudinary](https://cloudinary.com/) + [Next-cloudinary](https://next.cloudinary.dev/)       |
-| UI Framework      | [DaisyUI](https://daisyui.com/) + [Tailwind CSS](https://tailwindcss.com/)             |
-| Utilities         | [dayjs](https://www.npmjs.com/package/dayjs), [filesize](https://www.npmjs.com/package/filesize), [lucide-react](https://lucide.dev/guide/packages/lucide-react)     |
+| Authentication    | [Clerk](https://clerk.com/) |
+| Media Handling    | [Cloudinary](https://cloudinary.com/) + [Next-cloudinary](https://next.cloudinary.dev/) |
+| UI Framework      | [DaisyUI](https://daisyui.com/) + [Tailwind CSS](https://tailwindcss.com/) |
+| Utilities         | [dayjs](https://www.npmjs.com/package/dayjs), [filesize](https://www.npmjs.com/package/filesize), [lucide-react](https://lucide.dev/guide/packages/lucide-react) |
 
