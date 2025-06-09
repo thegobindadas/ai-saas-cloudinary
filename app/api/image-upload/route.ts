@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from "cloudinary";
 import { auth } from "@clerk/nextjs/server";
 
 
@@ -19,14 +19,13 @@ interface CloudinaryUploadResult {
 
 export async function POST(request: NextRequest) {
     try {
-console.log("Api route hit") 
-/*
+
         const { userId } = await auth();
 
         if (!userId) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-*/       
+
 
         const formData = await request.formData();
 
