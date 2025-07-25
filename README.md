@@ -1,6 +1,6 @@
-# 📹 MediaMorph - A Fullstack SaaS Video & Image Processing App
+# 📹 A Fullstack SaaS Video & Image Processing App
 
-MediaMorph is a fullstack SaaS application built with Next.js and Clerk, enabling users to sign up, upload videos, compress & download them using Cloudinary, and transform images to popular social media formats like Instagram, Twitter, and Facebook.
+This is a fullstack SaaS application built with Next.js and Clerk, enabling users to sign up, upload videos, compress & download them using Cloudinary, and transform images to popular social media formats like Instagram, Twitter, and Facebook.
 
 ---
 
